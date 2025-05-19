@@ -308,7 +308,7 @@ components:
           example: 1500.50
         payment_method:
           type: string
-          description: Метод платежа (например, 'card'). Соответствует Payment_method в БД.
+          description: Метод платежа (например, 'card').
           pattern: ^[a-z_]+$
           example: card
         card_details:
@@ -326,7 +326,7 @@ components:
         card_number:
           type: string
           pattern: ^\d{16}$
-          description: Номер карты. Соответствует Card_number в Bank_card.
+          description: Номер карты.
           example: "4111123412344444"
         expiry_date:
           type: string
@@ -336,14 +336,14 @@ components:
         cvv:
           type: string
           pattern: ^\d{3}$
-          description: CVV/CVC код карты. Соответствует CVV в Bank_card.
+          description: CVV/CVC код карты.
           example: "123"
         cardholder_name:
           type: string
           pattern: ^[A-Za-z\s'.-]{2,50}$
           minLength: 2
           maxLength: 100
-          description: Имя держателя карты. Соответствует Cardholder_name в Bank_card.
+          description: Имя держателя карты.
           example: "IVAN IVANOV"
 
     Payment:
@@ -353,21 +353,21 @@ components:
         id:
           minimum: 1
           type: integer
-          description: Уникальный идентификатор платежа. Соответствует ID в Client_payment.
+          description: Уникальный идентификатор платежа. 
           readOnly: true
         amount:
           type: number
           format: float
-          description: Сумма платежа. Соответствует Amount в Client_payment.
+          description: Сумма платежа. 
         payment_date:
           type: string
           format: date-time
-          description: Дата и время создания платежа. Соответствует Payment_date в Client_payment.
+          description: Дата и время создания платежа. 
           pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$
         payment_method:
           type: string
           pattern: ^[a-z_]{3,20}$
-          description: Метод платежа. Соответствует Payment_method в Client_payment.
+          description: Метод платежа. 
         status_name:
           type: string
           pattern: ^[A-Za-z\s-]{3,50}$
@@ -376,16 +376,16 @@ components:
           type: string
           pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$
           format: date-time
-          description: Дата и время последнего обновления статуса. Соответствует Date_time в Payment_status.
+          description: Дата и время последнего обновления статуса. 
         error_code:
           type: string
           pattern: ^[A-Z0-9_]{2,20}$|^$
           nullable: true
-          description: Код ошибки, если платеж не прошел. Соответствует Error_code в Client_payment.
+          description: Код ошибки, если платеж не прошел. 
         card_account_id:
           type: integer
           minimum: 1
-          description: ID связанного карточного счета. Соответствует Card_account_ID в Client_payment.
+          description: ID связанного карточного счета. 
           nullable: true
 
     PaymentStatus:
@@ -403,7 +403,7 @@ components:
         status_description:
           type: string
           nullable: true
-          description: Описание статуса. Соответствует Description в Payment_status.
+          description: Описание статуса. 
         status_date_time:
           type: string
           pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$
